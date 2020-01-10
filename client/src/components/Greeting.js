@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import Clock from './Clock'
+import {connect} from 'react-redux'
 class Greeting extends Component {
-	state = {
-		user: 'Buddy'
-	}
+
 
 	getHours = () => {
 	return new Date().getHours()
@@ -23,10 +22,10 @@ class Greeting extends Component {
 		return (
 		<div className="greeting-container">
 			<Clock/>
-			<h2 className="greeting-text">Good {this.setGreeting()}, {this.state.user}</h2>
+			<h2 className="greeting-text">Good {this.setGreeting()}, {this.props.user.name}</h2>
 		</div>
 		)
 	}
 }
-
-export default Greeting;
+const mapStateToProps = state => ({user: state.auth.user})
+export default connect(mapStateToProps)(Greeting)
