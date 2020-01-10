@@ -1,16 +1,30 @@
+
 html {
   font-size: 10px;
 }
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+ font-family: 'Roboto', sans-serif;
 }
 .App {
-	background: no-repeat url("./assets/chania-sunset.jpg");
-  background-size: cover;
-  height: 100vh;
+
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	width:100%;
+	height: 100vh;
+
+	background-image:url("./assets/chania-sunset.jpg");
+	background-color: transparent;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+
 }
+
 
 /* weather */
 .weather-container {
@@ -48,7 +62,7 @@ body {
 }
 
 .clock-time {
-  font: bold 12rem Arial, sans-serif;
+	font: bold 12rem Roboto;
 	margin: 0;
 }
 
@@ -61,7 +75,7 @@ body {
 
 @media (max-width: 700px) {
   .clock-time {
-		font: bold 8rem Arial, sans-serif;
+		font: bold 8rem 'Roboto';
 	}
   .greeting-text {
 		font-size: 4rem;
@@ -70,7 +84,7 @@ body {
 
 @media (max-height: 630px) {
   .clock-time {
-		font: bold 8rem Arial, sans-serif;
+		font: bold 8rem 'Open sans', sans-serif;
 	}
   .greeting-text {
 		font-size: 4rem;

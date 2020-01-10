@@ -22,7 +22,7 @@ class Clock extends Component {
 
 	render () {
 		return (
-			<div id="clock" className="widget-container clock"><div className='time'>{this.state.time}</div>
+			<div id="clock" className="widget-container clock"><div className='clock-time'>{this.state.time}</div>
 			</div>
 		)
 	}
