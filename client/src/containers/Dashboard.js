@@ -3,6 +3,8 @@ import {getGeolocation} from '../store/actions/weatherActions'
 import {connect} from 'react-redux'
 import WeatherContainer from './WeatherContainer.js'
 import Greeting from '../components/Greeting'
+import Search from '../components/Search'
+import Links from '../components/Links/Links'
 class Dashboard extends Component {
 	componentDidMount() {
 		this.props.getGeolocation()
@@ -10,6 +12,8 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<div className='App'>
+			<Links/>
+			<Search/>
 <WeatherContainer/>
 <Greeting/>
 			</div>
