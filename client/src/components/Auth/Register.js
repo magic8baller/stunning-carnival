@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
 import {Field, reduxForm} from 'redux-form'
-
+import {withRouter} from 'react-router-dom'
 import {registerUser} from '../../store/actions/authActions'
 class Register extends Component {
 
@@ -43,7 +43,7 @@ class Register extends Component {
 					/>
 				</fieldset>
 				<div>{this.props.errorMessage}</div>
-				<button>Sign Up!</button>
+				<button style={{border: 'black 2px solid', color: 'black'}}>Sign Up!</button>
 			</form>
 
 		)
@@ -51,6 +51,7 @@ class Register extends Component {
 }
 const mapStateToProps = state => ({errorMessage: state.auth.errorMessage})
 export default compose(
+	withRouter,
 	connect(mapStateToProps, {registerUser}),
 	reduxForm({form: 'register'})
 

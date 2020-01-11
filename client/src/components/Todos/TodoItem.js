@@ -7,7 +7,7 @@ const TodoItem = ({todo, handleDelete}) => {
 			<span><input type='checkbox' name='complete' />
 {todo.text}
 			</span>
-			<button type="submit" onClick={() => handleDelete(todo._id)}>X</button>
+			<button className='todo-button' type="submit" onClick={() => handleDelete(todo._id)}>X</button>
 			</li>
 
 	)

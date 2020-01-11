@@ -3,10 +3,10 @@ import React from 'react'
 import Router from './Router'
 import {Provider} from 'react-redux'
 import store from './store'
-import {loginWithToken} from './store/actions/authActions'
+import {loadUser} from './store/actions/authActions'
 
 
-localStorage.getItem('token') && store.dispatch(loginWithToken(localStorage.getItem('token')))
+localStorage.getItem('token') && store.dispatch(loadUser())
 const App = () => {
 	return (
 	<Provider store={store}>

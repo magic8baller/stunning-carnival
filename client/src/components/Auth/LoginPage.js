@@ -1,28 +1,16 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {clearError, loadUser, loginWithToken} from '../../store/actions/authActions.js'
+import {compose} from 'redux'
+import {withRouter} from 'react-router-dom'
+import {clearError, loadUser} from '../../store/actions/authActions.js'
 import Spinner from '../common/Spinner'
 import LoginForm from './LoginForm'
 class Login extends Component {
 
-	// componentDidMount () {
-	// 	this.props.loadUser()
-	// 	this.props.clearError()
-	// 	if (this.props.isAuthenticated) {
-	// 		this.props.history.push('/')
-	// 	}
-
-	// 	if (this.props.isLoading) {
-	// 		return (
-	// 			<div style={{textAlign: 'center'}}>
-	// 				<Spinner />
-	// 			</div>
-	// 		)
-	// 	}
-	// }
-	render () {
-			if (this.props.isAuthenticated) {
-				this.props.loginWithToken(localStorage.getItem('token'))
+	componentDidMount () {
+		this.props.loadUser()
+		this.props.clearError()
+		if (this.props.isAuthenticated) {
 			this.props.history.push('/')
 		}
 
@@ -33,13 +21,27 @@ class Login extends Component {
 				</div>
 			)
 		}
+	}
+	render () {
+		// 	if (this.props.isAuthenticated) {
+		// 		this.props.loadUser()
+		// 	this.props.history.push('/')
+		// }
+
+		// if (this.props.isLoading) {
+		// 	return (
+		// 		<div style={{textAlign: 'center'}}>
+		// 			<Spinner />
+		// 		</div>
+		// 	)
+		// }
 		return (
-			<section class="banner">
-        <div class="banner__container">
-        <h1 class="banner__title">
+			<section className="banner">
+        <div className="banner__container">
+        <h1 className="banner__title">
 			WELCOME!
 				</h1>
-				<LoginForm />
+				<LoginForm {...this.props}/>
 			</div>
 			</section>
 		)
@@ -53,7 +55,8 @@ const mapStateToProps = state => ({
 	isLoading: state.auth.isLoading
 })
 
-export default connect(
+export default 	withRouter(connect(
+
 	mapStateToProps,
-	{loadUser, clearError, loginWithToken}
-)(Login)
+	{loadUser, clearError}
+)(Login))

@@ -12,6 +12,7 @@ class Login extends Component {
 	onSubmit = formProps => {
 		this.props.loginUser(formProps)
 		console.log(formProps)
+		this.props.history.push('/')
 	}
 	render () {
 		const {handleSubmit, errorMessage} = this.props
@@ -86,5 +87,4 @@ const mapStateToProps = state => ({errorMessage: state.auth.errorMessage})
 export default compose(
 	connect(mapStateToProps, {loginUser}),
 	reduxForm({form: 'login', validateForm})
-
 )(Login)

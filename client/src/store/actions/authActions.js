@@ -10,7 +10,7 @@ export const registerUser = (formProps, callback) => async dispatch => {
 		setAuthToken(token)
 		const decodedToken = parseJwt(token)
 		dispatch(setCurrentUser(decodedToken))
-
+// history.push('/')
 	} catch (e) {
 		dispatch({type: 'AUTHENTICATE_ERROR', payload: 'Email is already registered'})
 	}
@@ -26,7 +26,7 @@ export const loginUser = (formProps, cb) => async dispatch => {
 		setAuthToken(token)
 		const decoded = parseJwt(token)
 		dispatch(setCurrentUser(decoded))
-
+		window.location.href = "/"
 	} catch (e) {
 		dispatch({type: 'AUTHENTICATE_ERROR', payload: 'Invalid login credentials'})
 	}
@@ -62,7 +62,7 @@ export const logoutUser = (token) => dispatch => {
 		localStorage.removeItem('token')
 		localStorage.removeItem('coords')
 		dispatch({type: 'LOGOUT_USER', payload: ''})
-
+		window.location.push='/login'
 	} catch (error) {
 		console.error(error.message)
 	}
