@@ -38,8 +38,8 @@ export const setTodoStatus = id => async (dispatch, getState) => {
 	try {
 		const currentSelectedTodo = getState().todo.todos.find(todo => todo._id === id)
 		const updatedTodo = {...currentSelectedTodo, completed: !currentSelectedTodo.completed}
-		const updateStatusResponse = await API.put(`/api/todos/${id}`, updatedTodo)
-		dispatch({type: SET_TODO_STATUS, payload: updateStatusResponse.data})
+		await API.put(`/api/todos/${id}`, updatedTodo)
+		dispatch({type: SET_TODO_STATUS, payload: id})
 	} catch (error) {
 		setError(error)
 	}

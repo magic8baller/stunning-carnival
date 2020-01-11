@@ -3,7 +3,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import history from './history'
 
 import Login from './components/Auth/Login'
-
+import AddTodoForm from './components/Todos/AddTodoForm'
 import Register from './components/Auth/RegisterPage'
 import PrivateRoute from './components/common/PrivateRoute'
 import Dashboard from './containers/Dashboard'
@@ -21,7 +21,7 @@ const Router = () => (
 			<Switch>
 
 				<PrivateRoute path='/dashboard' history={history} exact component={Dashboard} />
-
+				<PrivateRoute path="/addTodo" exact component={AddTodoForm} />
 			</Switch>
 		</Main>
 	</BrowserRouter>
