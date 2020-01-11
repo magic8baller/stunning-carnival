@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {clearError, loadUser} from '../../store/actions/authActions.js'
+import {clearError, loadUser, loginWithToken} from '../../store/actions/authActions.js'
 import Spinner from '../common/Spinner'
 import LoginForm from './LoginForm'
 class Login extends Component {
@@ -22,6 +22,7 @@ class Login extends Component {
 	// }
 	render () {
 			if (this.props.isAuthenticated) {
+				this.props.loginWithToken(localStorage.getItem('token'))
 			this.props.history.push('/')
 		}
 
@@ -46,6 +47,7 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => ({
+
 	isAuthenticated: state.auth.isAuthenticated,
 	loginError: state.auth.errorMesage,
 	isLoading: state.auth.isLoading
@@ -53,5 +55,5 @@ const mapStateToProps = state => ({
 
 export default connect(
 	mapStateToProps,
-	{loadUser, clearError}
+	{loadUser, clearError, loginWithToken}
 )(Login)

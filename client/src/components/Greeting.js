@@ -9,7 +9,8 @@ class Greeting extends Component {
 	}
 
 	setGreeting = () => {
-		let currentHour = this.getHours()
+		let now = new Date()
+		let currentHour = now.getHours()
 		if (currentHour < 12) {
 			return 'Morning'
 		} else if (currentHour > 18) {

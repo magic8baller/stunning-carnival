@@ -14,13 +14,13 @@ import Main from './components/Main'
 const Router = () => (
 	<BrowserRouter history={history}>
 		<Main>
-			<Route path='/' exact component={Landing} />
-			<Route path='/register' component={Register} />
+			<Route path='/' history={history} exact component={Landing} />
+			<Route path='/register' history={history} component={Register} />
 
-			<Route path='/login' component={Login} />
+			<Route path='/login' history={history} component={Login} />
 			<Switch>
 
-				<PrivateRoute path='/dashboard' exact component={Dashboard} />
+				<PrivateRoute path='/dashboard' history={history} exact component={Dashboard} />
 
 			</Switch>
 		</Main>

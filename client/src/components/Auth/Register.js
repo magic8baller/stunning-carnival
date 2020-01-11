@@ -9,7 +9,7 @@ class Register extends Component {
 	onSubmit = formProps => {
 		this.props.registerUser(formProps, () => {
 
-			this.props.history.push('/dashboard')
+			this.props.history.push('/')
 		})
 		console.log(formProps)
 	}
