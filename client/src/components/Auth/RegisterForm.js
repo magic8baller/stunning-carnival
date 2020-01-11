@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
 import {Field, reduxForm} from 'redux-form'
-
 import {registerUser} from '../../store/actions/authActions'
 class Register extends Component {
 
@@ -43,7 +42,7 @@ class Register extends Component {
 					/>
 				</fieldset>
 				<div>{this.props.errorMessage}</div>
-				<button>Sign Up!</button>
+				<button style={{border: 'black 2px solid', color: 'black'}}>Sign Up!</button>
 			</form>
 
 		)

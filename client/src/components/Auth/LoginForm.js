@@ -1,17 +1,17 @@
 
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 import {compose} from 'redux'
 import {Field, reduxForm} from 'redux-form'
 import {loginUser} from '../../store/actions/authActions.js'
-import {Link} from 'react-router-dom'
 import RenderTextInput from '../Layout/RenderTextInput'
 
-import {connect} from 'react-redux'
 class Login extends Component {
 
 	onSubmit = formProps => {
 		this.props.loginUser(formProps)
 		console.log(formProps)
+	this.props.history.push('/')
 	}
 	render () {
 		const {handleSubmit, errorMessage} = this.props
@@ -35,27 +35,21 @@ class Login extends Component {
 					/>
 
 				{errorMessage && (
-					<div className="field">
-						<div className="control">
-							<p className="help is-danger is-size-6">{errorMessage}</p>
+					<div>
+						<div>
+							<p>{errorMessage}</p>
 						</div>
 					</div>
 				)}
-				<div className="field">
-					<div className="control">
-						<button className="button is-danger is-fullwidth" type="submit">
+				<div>
+					<div>
+						<button style={{border: 'black 2px solid', color: 'black'}} type="submit">
 							Login
           </button>
 					</div>
 				</div>
 
-				<div className="field is-pulled-right">
-					<div className="control">
-						<Link className="is-link" to="/register">
-							Don't have an account? Sign up here
-          </Link>
-					</div>
-				</div>
+
 			</form>
 
 		)

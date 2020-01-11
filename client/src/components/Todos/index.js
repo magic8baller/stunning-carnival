@@ -25,7 +25,7 @@ export default class Todos extends Component {
 	<TodoList todos={this.props.todos}/>
 	<AddTodo/>
 </div>
-<div className="todo-click-labe">
+<div className="todo-click-label">
 	<span onClick={this.activeHandler}>ToDo</span>
 </div>
 			</div>

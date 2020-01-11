@@ -4,7 +4,7 @@ import history from './history'
 
 import Login from './components/Auth/Login'
 
-import Register from './components/Auth/Register'
+import Register from './components/Auth/RegisterPage'
 import PrivateRoute from './components/common/PrivateRoute'
 import Dashboard from './containers/Dashboard'
 import Landing from './components/Landing'
