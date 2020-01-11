@@ -25,7 +25,7 @@ export const addTodo = (newTodo, callback) => async (dispatch) => {
 	}
 }
 
-export const editTodo = (updatedTodo, id, callback) => async dispatch => {
+export const editTodo = (updatedTodo, id) => async dispatch => {
 	try {
 const editTodoResponse = await API.put(`/api/todos/${id}`, updatedTodo)
 dispatch({type: EDIT_TODO, payload: editTodoResponse.data})

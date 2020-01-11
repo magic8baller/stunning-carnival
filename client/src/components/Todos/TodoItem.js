@@ -1,10 +1,10 @@
 import React from 'react'
-
-const TodoItem = ({todo, handleDelete, setTodoStatus}) => (
+import ContentEditable from 'react-contenteditable'
+const TodoItem = ({todo, handleDelete, setTodoStatus, handleChange}) => (
 
 			<li className="todo-list-item" key={todo._id}>
-			<span><input type='checkbox' name='complete' onChange={() => setTodoStatus(todo._id)} />
-{todo.text}
+			<span><input type='checkbox' checked={todo.completed} name='complete' onChange={() => setTodoStatus(todo._id)} />
+<ContentEditable html={todo.text} disabled={false} onChange={(e) =>handleChange(e.target.value, todo._id)}/>
 			</span>
 			<button type="submit" onClick={() => handleDelete(todo._id)}>X</button>
 			</li>

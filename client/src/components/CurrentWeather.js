@@ -3,7 +3,7 @@ import React from 'react'
 const CurrentWeather = ({currentWeather}) => {
 
 	if (currentWeather) {
-		const {main: {temp, temp_min, temp_max, pressure, humidity}, clouds, wind, weather, name} = currentWeather
+		const {main: {temp}, weather, name} = currentWeather
 
 		const renderWeather = () => (
 
@@ -20,7 +20,7 @@ const CurrentWeather = ({currentWeather}) => {
 				<p className="user-city">{name}</p>
 </div>
 
-		
+
 
 		)
 
