@@ -25,8 +25,10 @@ export const addTodo = (newTodo, callback) => async (dispatch) => {
 	}
 }
 
-export const editTodo = (updatedTodo, id, callback) => async dispatch => {
+export const editTodo = (id, text) => async (dispatch, getState) => {
 	try {
+		const selectedTodo = getState().todo.todos.find(todo => todo._id === id)
+		const updatedTodo = {...selectedTodo, text}
 const editTodoResponse = await API.put(`/api/todos/${id}`, updatedTodo)
 dispatch({type: EDIT_TODO, payload: editTodoResponse.data})
 	} catch (error) {
