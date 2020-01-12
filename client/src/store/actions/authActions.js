@@ -55,10 +55,10 @@ export const loadUser = () => async dispatch => {
 
 	}
 }
-export const logoutUser = (token) => dispatch => {
+export const logoutUser = () => dispatch => {
 	try {
-		setAuthToken(token)
-		API.post('/me/logout')
+		setAuthToken(localStorage.token)
+		API.post('/me/logoutall')
 		localStorage.removeItem('token')
 		localStorage.removeItem('coords')
 		dispatch({type: 'LOGOUT_USER', payload: ''})

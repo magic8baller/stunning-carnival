@@ -7,6 +7,7 @@ import Greeting from '../components/Greeting'
 import Search from '../components/Search'
 import Links from '../components/Links/Links'
 import QuoteContainer from './QuoteContainer'
+import SettingsContainer from './SettingsContainer'
 class Dashboard extends Component {
 	componentDidMount() {
 		this.props.getGeolocation()
@@ -18,6 +19,7 @@ class Dashboard extends Component {
 			<Search/>
 <WeatherContainer/>
 <Greeting/>
+<SettingsContainer/>
 <TodoContainer/>
 <QuoteContainer/>
 			</div>

@@ -1,16 +1,17 @@
 import React, {Component} from 'react'
 import EditableText from '../common/EditableText.js'
+
 class TodoItem extends Component {
   constructor(props) {
     super(props);
   }
 
+
   render() {
 		const {todo} = this.props
     return (
 		<div style={{
-      color: '#fff',
-      listStyleType: 'none'
+      color: '#fff'
     }} className='inline' key={this.props.todo._id}>
 
 		<input type='checkbox' name='complete' checked={this.props.todo.completed} onChange={() => this.props.setTodoStatus(this.props.todo._id)} />
@@ -23,7 +24,7 @@ class TodoItem extends Component {
         {this.props.todo.text}
 		</EditableText>
 
-				<button className='right' title='Delete' type="submit" onClick={() => this.props.handleDelete(this.props.todo._id)}>&times;</button>
+				<div className='right' title='Delete' type="submit" onClick={() => this.props.handleDelete(this.props.todo._id)}>&times;</div>
 <br/>			</div>);
   }
 

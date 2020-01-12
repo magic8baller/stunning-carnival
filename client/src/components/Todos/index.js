@@ -2,7 +2,11 @@ import classNames from 'classnames'
 import React, {Component} from 'react'
 import AddTodo from './AddTodoForm'
 import TodoList from './TodoList'
-export default class Todos extends Component {
+import {connect} from 'react-redux'
+import {addTodo} from '../../store/actions/todoActions.js'
+
+
+class Todos extends Component {
 
 	state = {
 		active: false
@@ -27,8 +31,9 @@ export default class Todos extends Component {
 				{this.state.active && (
 					<div id='todo-content'>
 				<h4>TodoList</h4>
-					<TodoList todos={this.props.todos}/>
+					<TodoList/>
 					<AddTodo />
+
 				</div>
 				)}
 					</div>
@@ -36,3 +41,4 @@ export default class Todos extends Component {
 		)
 	}
 }
+export default connect()(Todos)
