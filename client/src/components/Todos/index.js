@@ -20,16 +20,19 @@ export default class Todos extends Component {
 			active: this.state.active
 		})
 		return (
-			<div className='todo-container'>
-				<div className={activeTodoList}>
+			<div>
+				<div className='todo' onClick={this.activeHandler}>
+				<h4>Todo</h4>
+				</div>
+				{this.state.active && (
+					<div id='todo-content'>
 				<h4>TodoList</h4>
 					<TodoList todos={this.props.todos}/>
 					<AddTodo />
 				</div>
-				<div className="todo-click-label">
-					<span onClick={this.activeHandler}>ToDo</span>
-				</div>
-			</div>
+				)}
+					</div>
+
 		)
 	}
 }

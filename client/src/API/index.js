@@ -13,3 +13,7 @@ export default axios.create({
 export const weatherAPI = axios.create({
 	baseURL: 'http://api.openweathermap.org/data/2.5/weather'
 })
+
+export const quoteAPI = axios.create({
+	baseURL: "https://freequote.herokuapp.com/"
+})

@@ -3,7 +3,10 @@ const {FETCH_QUOTES, FETCH_SINGLE_QUOTE, FAVORITE_QUOTE, ADD_QUOTE, REMOVE_FAVOR
 
 const initialState = {
 	quotes: [],
-	currentQuote: null,
+	currentQuote: {
+		quote: "If you cannot do great things, do small things in a great way.",
+      author: "Napoleon Hill"
+	},
 
 }
 

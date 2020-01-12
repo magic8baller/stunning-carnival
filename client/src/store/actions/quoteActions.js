@@ -1,11 +1,17 @@
-import API from '../../API'
+import API, {quoteAPI} from '../../API'
 import {quoteConstants} from '../constants'
 const {FETCH_QUOTES, FETCH_SINGLE_QUOTE, FAVORITE_QUOTE, ADD_QUOTE, REMOVE_FAVORITED_QUOTE, QUOTE_ERROR} = quoteConstants
 
-export const fetchQuotes = () = async dispatch => {
-let getQuotesResponse = await API.get('/api/quotes')
+export const fetchSingleQuote = () => async dispatch => {
 
-dispatch({type:FETCH_QUOTES, payload: getQuotesResponse.data})
+try {
+	let getQuotesResponse = await quoteAPI.get('/')
+console.log('quoteRes:', getQuotesResponse.data)
+	dispatch({type:FETCH_SINGLE_QUOTE, payload: getQuotesResponse.data})
+
+} catch (e) {
+	setQuoteError(e)
+}
 }
 
 export const setFavoriteQuote = (quoteId) => async dispatch => {
@@ -17,6 +23,6 @@ export const setFavoriteQuote = (quoteId) => async dispatch => {
 	}
 }
 
-export const setError = (error) => dispatch => {
+export const setQuoteError = (error) => dispatch => {
 	return dispatch({type: QUOTE_ERROR, payload: error.message})
 }

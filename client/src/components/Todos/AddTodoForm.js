@@ -16,7 +16,6 @@ class TodoForm extends Component {
 		const {handleSubmit} = this.props
 		return (
 			<div className="add-item-container">
-
 				<form onSubmit={handleSubmit(this.onSubmit)}>
 					<fieldset>
 						<label htmlFor="todo">Todo: </label>
