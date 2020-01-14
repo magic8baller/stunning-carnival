@@ -4,7 +4,7 @@ import AddTodo from './AddTodoForm'
 import TodoList from './TodoList'
 import {connect} from 'react-redux'
 import {addTodo} from '../../store/actions/todoActions.js'
-
+import './Todo.css'
 
 class Todos extends Component {
 

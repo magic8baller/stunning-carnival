@@ -7,7 +7,7 @@ class TodoList extends Component {
 	render () {
 		return (
 
-			<ul>
+			<ul className='todo-list'>
 				{this.props.todos.map(todo => <TodoItem key={todo.id} todo={todo} handleDelete={() => this.props.deleteTodo(todo._id)} setTodoStatus={() => this.props.setTodoStatus(todo._id)} editTodo={() => this.props.editTodo(todo._id, todo.text)} />)}
 			</ul>
 		)

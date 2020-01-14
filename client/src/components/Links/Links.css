@@ -1,0 +1,20 @@
+.list-container {box-sizing:border-box;
+background:rgb(34, 34, 34);
+display:block;
+font-size:16px;
+height:auto;
+left:7px;
+min-width:200px;
+overflow-x:hidden;
+overflow-y:hidden;
+padding-bottom:0px;
+padding-left:0px;
+padding-right:0px;
+padding-top:0px;
+position:absolute;
+text-align:left;
+text-shadow:none;
+transition-property:opacity, height;
+user-select:none;
+width:250px;
+z-index:1}

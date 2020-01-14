@@ -1,0 +1,146 @@
+.weather .weather-location {
+    display: flex;
+    align-items: center;
+    transition: opacity .2s;
+}
+.weather-current-header {
+    margin: -3px 0 0;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.weather-current-location {
+    min-width: 0;
+    display: inline-block;
+    flex: 0 1 auto;
+}
+
+.weather-location-name {
+	font-size: 19px;
+    min-height: 24px;
+    min-width: 32px;
+    max-width: 310px;
+    margin-right: 5px;
+    display: inline;
+    flex: 0 1 auto;
+    align-self: baseline;
+    cursor: pointer;
+    font-size: 118.75%;
+    outline: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.weather-current-conditions {
+	font-size: 15px;
+    margin: -1px 0 10px;
+    display: block;
+    line-height: 125%;
+    opacity: .7;
+}
+
+.weather-current-temp-row {
+    margin-bottom: 8px;
+    display: flex;
+    transition: filter .2s;
+}
+
+.weather-current-temp-wrapper {
+    padding-right: 22px;
+    position: relative;
+    flex: 1 1 50%;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+.weather-current-temp {
+    font-size: 60px;
+}
+.icon {
+	height: 13px;
+}
+.weather-current-icon {
+    margin-right: 10px;
+    font-size: 58px;
+    line-height: 58px;
+}
+
+.weather-current-details {
+    height: 70px;
+    min-width: 130px;
+    margin: 0;
+    padding-top: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    flex: 1 1 50%;
+    box-sizing: border-box;
+    font-size: 13px;
+    line-height: 135%;
+    transition: opacity .2s ease;
+}
+.weather-current-details-title {
+    margin-right: 1px;
+    opacity: .6;
+}
+.weather-current-details-value {
+    opacity: .9;
+}
+
+.weather-optional.active {
+    opacity: 1;
+}
+.weather-optional.weather-detail.active {
+    height: 90px;
+}
+.weather-extra {
+    padding: 11px 0;
+    display: flex;
+    font-size: 12px;
+}
+.weather-extra-col {
+    flex: 1 1 50%;
+}
+
+.weather-extra-cell:nth-child(odd) {
+    margin-bottom: 4px;
+}
+
+
+.weather-extra-cell {
+    line-height: 135%;
+}
+
+.weather-forecast-daily.active {
+    opacity: 1;
+}
+
+.weather-forecast-daily {
+    padding-top: 8px!important;
+    clear: both;
+    opacity: 0;
+    transition: opacity .2s ease;
+}
+
+.weather-forecast {
+    display: flex;
+    font-size: 11px;
+}
+
+.weather-forecast-day:first-child {
+    margin-left: 0;
+}
+
+
+.weather-forecast-day {
+    margin: 0 1.5px;
+    padding: 5px 2px;
+    border-radius: 3px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.weather-forecast-item {
+    flex: 1 1 11%;
+    text-align: center;
+}

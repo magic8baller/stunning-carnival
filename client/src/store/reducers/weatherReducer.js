@@ -1,11 +1,14 @@
 import {weatherConstants} from '../constants'
-const {WEATHER_ERROR, GET_CURRENT_WEATHER, GET_GEOLOCATION} = weatherConstants
+const {WEATHER_ERROR, GET_CURRENT_WEATHER, GET_WEATHER_FORECAST, GET_GEOLOCATION} = weatherConstants
+
 
 
 const initialState = {
 	currentWeather: null,
 	loading: false,
-	error: null
+	error: null,
+	forecast: null
+
 }
 
 const weatherReducer = (state = initialState, action) => {
@@ -15,6 +18,11 @@ const weatherReducer = (state = initialState, action) => {
 				...state,
 				currentWeather: {...state.currentWeather, ...action.payload}
 			}
+			case GET_WEATHER_FORECAST:
+				return {
+					...state,
+					forecast: action.payload
+				}
 			case WEATHER_ERROR:
 				return {
 					...state,

@@ -3,7 +3,7 @@ import React, {Component} from "react";
 import AddLink from "./AddLink";
 import LinkItem from "./LinkItem";
 import classNames from "classnames";
-
+import './Links.css'
 class Links extends Component {
 	constructor (props) {
 		super(props);
@@ -68,33 +68,28 @@ class Links extends Component {
 	};
 
 	activeHandler = () => {
-		if (this.state.active === false) {
-			this.setState({active: true});
-		} else {
-			this.setState({active: false});
-		}
+
+			this.setState({active: !this.state.active});
+
 	};
 
 	render () {
-		console.log("links: ", this.state.links);
-		let activeLinksList = classNames({
-			"links-list-container": true,
-			active: this.state.active
-		});
+
 		return (
 			<div className="links-container">
 				<div className="links-click-label">
 					<span onClick={this.activeHandler}>Links</span>
 				</div>
-				<div className={activeLinksList}>
-					<LinkItem links={this.state.links} deleteItem={this.deleteItem} />
+
+			{	this.state.active &&(<div className='list-container'>
+					<li className="links-list-item"><a href='http://google.com' target='_blank'>New Chrome Tab</a></li><LinkItem links={this.state.links} deleteItem={this.deleteItem} />
 					<AddLink
 						name={this.state.fields.name}
 						url={this.state.fields.url}
 						handleChange={this.handleChange}
 						handleSubmit={this.handleSubmit}
 					/>
-				</div>
+				</div>)}
 			</div>
 		);
 	}

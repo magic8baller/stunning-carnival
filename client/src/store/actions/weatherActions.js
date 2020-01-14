@@ -1,6 +1,6 @@
 import {weatherAPI} from '../../API'
 import {weatherConstants} from '../constants'
-const {GEOLOCATION_DENIED, GET_CURRENT_WEATHER, GET_GEOLOCATION, SET_COORDS,WEATHER_ERROR} = weatherConstants
+const {GEOLOCATION_DENIED, GET_CURRENT_WEATHER, GET_WEATHER_FORECAST, GET_GEOLOCATION, SET_COORDS,WEATHER_ERROR} = weatherConstants
 const REACT_APP_OPEN_WEATHER_KEY = '2d61e029b2ceb5e6ee95965c1c1d3bd2'
 
 export const getGeolocation = () => async dispatch => {
@@ -20,11 +20,24 @@ export const getGeolocation = () => async dispatch => {
 
 export const fetchCurrentWeather = ({latitude, longitude}) => async (dispatch) => {
 	try {
-		let weatherResponse = await weatherAPI.get(`/?lat=${latitude}&lon=${longitude}&cnt=10&appid=${REACT_APP_OPEN_WEATHER_KEY}&units=imperial`)
+		let weatherResponse = await weatherAPI.get(`/weather/?lat=${latitude}&lon=${longitude}&cnt=10&appid=${REACT_APP_OPEN_WEATHER_KEY}&units=imperial`)
 
 		dispatch({type: GET_CURRENT_WEATHER, payload: weatherResponse.data})
 
 		dispatch({type: SET_COORDS, payload: weatherResponse.data.coord})
+	} catch (err) {
+		dispatch({type: WEATHER_ERROR, payload: err.message})
+		console.error(err)
+	}
+}
+export const fetchForecast = ({latitude, longitude}) => async (dispatch) => {
+	try {
+		let forecastResponse = await weatherAPI.get(`/forecast/?lat=${latitude}&lon=${longitude}&cnt=10&appid=${REACT_APP_OPEN_WEATHER_KEY}&units=imperial`)
+
+		dispatch({
+			type: GET_WEATHER_FORECAST, payload: forecastResponse.data})
+
+
 	} catch (err) {
 		dispatch({type: WEATHER_ERROR, payload: err.message})
 		console.error(err)
