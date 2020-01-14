@@ -3,7 +3,6 @@ import Clock from './Clock'
 import {connect} from 'react-redux'
 class Greeting extends Component {
 
-
 	getHours = () => {
 	return new Date().getHours()
 	}

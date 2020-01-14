@@ -45,3 +45,9 @@ export const focusConstants = {
 	UPDATE_FOCUS: 'UPDATE_FOCUS',
 	FOCUS_ERROR: 'FOCUS_ERROR'
 }
+
+export const themeConstants = {
+
+UPDATE_THEME_COLOR: 'UPDATE_THEME_COLOR',
+UPDATE_THEME_FONT: 'UPDATE_THEME_FONT'
+}
