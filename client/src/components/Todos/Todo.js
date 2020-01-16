@@ -1,9 +1,9 @@
-import classNames from 'classnames'
+
 import React, {Component} from 'react'
 import AddTodo from './AddTodoForm'
 import TodoList from './TodoList'
 import {connect} from 'react-redux'
-import {addTodo} from '../../store/actions/todoActions.js'
+
 import './Todo.css'
 
 class Todos extends Component {
@@ -19,10 +19,7 @@ class Todos extends Component {
 		this.setState({active: !this.state.active})
 	}
 	render () {
-		let activeTodoList = classNames({
-			'todo-list-container': true,
-			active: this.state.active
-		})
+
 		return (
 			<div>
 				<div className='todo' onClick={this.activeHandler}>

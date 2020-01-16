@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchTodos, deleteTodo} from '../store/actions/todoActions'
-import Todos from '../components/Todos'
+import Todos from '../components/Todos/Todo'
 class TodoContainer extends Component {
 
 	render() {

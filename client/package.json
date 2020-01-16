@@ -1,7 +1,18 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "private": true,
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/magic8baller/stunning-carnival.git"
+	},
+	 "keywords": [],
+  "author": "Leslie T",
+  "license": "MIT",
+	  "bugs": {
+    "url": "https://github.com/magic8baller/stunning-carnival/issues"
+  },
+  "homepage": "https://github.com/magic8baller/stunning-carnival#readme",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",

@@ -1,11 +1,9 @@
 import React from 'react'
 import './Forecast.css'
+import {convertUnix} from '../../utils/formatTime'
 const Details = ({currentWeather}) => {
 
-	let convertUTC = (string) => {
-		let sunTime = new Date(string * 1000)
-		return `${sunTime.getHours()}:${sunTime.getMinutes()}`
-	}
+
 
 	return (
 		<>
@@ -45,10 +43,10 @@ const Details = ({currentWeather}) => {
 					<div className="weather-extra-col">
 						<div className="weather-extra-cell" title="Moon Waning Gibbous">
 							<div>
-								<span className="weather-current-details-title">Sunrise</span> <span className="weather-current-details-value">{convertUTC(currentWeather.sys.sunrise)}</span>
+								<span className="weather-current-details-title">Sunrise</span> <span className="weather-current-details-value">{convertUnix(currentWeather.sys.sunrise)}</span>
 							</div>
 							<div>
-								<span className="weather-current-details-title">Sunset</span> <span className="weather-current-details-value">{convertUTC(currentWeather.sys.sunset)}</span>
+								<span className="weather-current-details-title">Sunset</span> <span className="weather-current-details-value">{convertUnix(currentWeather.sys.sunset)}</span>
 							</div>
 						</div>
 
@@ -71,9 +69,9 @@ const Details = ({currentWeather}) => {
 						</div>
 
 						<div className="weather-extra-cell">
-					
+
 							<div title="">
-								<span className="weather-current-details-title">Visibility</span> <span className="weather-current-details-value">{currentWeather.visibility} mi</span>
+								<span className="weather-current-details-title">Visibility</span> <span className="weather-current-details-value">{currentWeather.visibility}</span>
 							</div>
 						</div>
 					</div>

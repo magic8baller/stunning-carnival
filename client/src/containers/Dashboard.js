@@ -1,27 +1,27 @@
-import React, { Component } from 'react'
-import {getGeolocation} from '../store/actions/weatherActions'
+import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import WeatherContainer from './WeatherContainer.js'
-import TodoContainer from './TodoContainer.js'
-import Greeting from '../components/Greeting'
+import Greeting from './GreetingContainer'
+import Links from './LinksContainer'
 import Search from '../components/Search'
-import Links from '../components/Links/Links'
+import {getGeolocation} from '../store/actions/weatherActions'
 import QuoteContainer from './QuoteContainer'
 import SettingsContainer from './SettingsContainer'
+import TodoContainer from './TodoContainer.js'
+import WeatherContainer from './WeatherContainer.js'
 class Dashboard extends Component {
-	componentDidMount() {
+	componentDidMount () {
 		this.props.getGeolocation()
 	}
-	render() {
+	render () {
 		return (
 			<div className='App'>
-			<Links/>
-			<Search/>
-<WeatherContainer/>
-<Greeting/>
-<SettingsContainer/>
-<TodoContainer/>
-<QuoteContainer/>
+				<Links />
+				<Search />
+				<WeatherContainer />
+				<Greeting />
+				<SettingsContainer />
+				<TodoContainer />
+				<QuoteContainer />
 			</div>
 		)
 	}

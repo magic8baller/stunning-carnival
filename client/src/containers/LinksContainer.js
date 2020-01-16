@@ -1,10 +1,8 @@
 import React, {Component} from "react";
-
-import AddLink from "./AddLink";
-import LinkItem from "./LinkItem";
-import classNames from "classnames";
+import AddLink from "../components/Links/AddLink";
+import LinkList from "../components/Links/LinkList";
 import './Links.css'
-class Links extends Component {
+class LinksContainer extends Component {
 	constructor (props) {
 		super(props);
 		this.state = {
@@ -28,10 +26,9 @@ class Links extends Component {
 	}
 
 	handleChange = e => {
-		const fields = this.state.fields;
+		const {fields} = this.state;
 		fields[e.target.name] = e.target.value;
 		this.setState({fields});
-		console.log("state", this.state.fields);
 	};
 
 	handleSubmit = e => {
@@ -68,9 +65,7 @@ class Links extends Component {
 	};
 
 	activeHandler = () => {
-
 			this.setState({active: !this.state.active});
-
 	};
 
 	render () {
@@ -80,9 +75,9 @@ class Links extends Component {
 				<div className="links-click-label">
 					<span onClick={this.activeHandler}>Links</span>
 				</div>
-
-			{	this.state.active &&(<div className='list-container'>
-					<li className="links-list-item"><a href='http://google.com' target='_blank'>New Chrome Tab</a></li><LinkItem links={this.state.links} deleteItem={this.deleteItem} />
+			{	this.state.active &&(
+				<div className='list-container'>
+				<LinkList links={this.state.links} deleteItem={this.deleteItem} />
 					<AddLink
 						name={this.state.fields.name}
 						url={this.state.fields.url}
@@ -95,4 +90,4 @@ class Links extends Component {
 	}
 }
 
-export default Links;
+export default LinksContainer;

@@ -1,13 +1,11 @@
 import React, {Component} from 'react'
+import {formatClockTime} from '../utils/formatTime'
 class Clock extends Component {
 	state = {
 	time: ''
 	}
 
-	formattedTime = (date) => {
 
-		return date.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})
-	}
 	componentDidMount () {
 		this.timerID = setInterval(() => this.tick(), 1000)
 	}
@@ -17,7 +15,7 @@ class Clock extends Component {
 	}
 
 	tick = () => {
-		this.setState({time:this.formattedTime(new Date())})
+		this.setState({time: formatClockTime(new Date())})
 	}
 
 	render () {

@@ -1,5 +1,5 @@
-import React, {Component} from "react";
 import classNames from "classnames";
+import React, {Component} from "react";
 
 class AddLink extends Component {
 	constructor (props) {
@@ -10,11 +10,7 @@ class AddLink extends Component {
 	}
 
 	addLinkToggle = () => {
-		if (this.state.addLink === false) {
-			this.setState({addLink: true});
-		} else {
-			this.setState({addLink: false});
-		}
+		this.setState({addLink: !this.state.addLink});
 	};
 
 	render () {

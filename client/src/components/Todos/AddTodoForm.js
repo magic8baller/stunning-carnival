@@ -18,7 +18,7 @@ class TodoForm extends Component {
 			<div className="add-item-container">
 				<form onSubmit={handleSubmit(this.onSubmit)}>
 					<fieldset>
-						<label htmlFor="todo">Todo: </label>
+						<label htmlFor="todo"></label>
 						<Field
 							className='add-item-input'
 							name='text'
@@ -26,8 +26,6 @@ class TodoForm extends Component {
 							component='input'
 						/>
 					</fieldset>
-
-					<button type="submit"> Save </button>
 				</form>
 			</div>
 
