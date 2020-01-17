@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Spinner from '../components/common/Spinner'
-import CurrentWeather from '../components/CurrentWeather'
-import WeatherBox from '../components/WeatherBox'
+import CurrentWeather from '../components/Weather/CurrentWeather'
+import WeatherBox from '../components/Weather/WeatherBox'
 import {fetchCurrentWeather} from '../store/actions/weatherActions'
 
 class Weather extends Component {

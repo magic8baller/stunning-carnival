@@ -1,18 +1,10 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {deleteTodo, setTodoStatus, editTodo} from '../../store/actions/todoActions'
+import React from 'react'
 import TodoItem from './TodoItem'
-class TodoList extends Component {
 
-	render () {
-		return (
+const TodoList = props => (
+	<ul className='todo-list'>
+		{props.todos.map(todo => <TodoItem key={todo.id} todo={todo} handleDelete={() => props.deleteTodo(todo._id)} setTodoStatus={() => props.setTodoStatus(todo._id)} editTodo={() => props.editTodo(todo._id, todo.text)} />)}
+	</ul>
+)
 
-			<ul className='todo-list'>
-				{this.props.todos.map(todo => <TodoItem key={todo.id} todo={todo} handleDelete={() => this.props.deleteTodo(todo._id)} setTodoStatus={() => this.props.setTodoStatus(todo._id)} editTodo={() => this.props.editTodo(todo._id, todo.text)} />)}
-			</ul>
-		)
-	}
-}
-
-const mapStateToProps = state => ({user: state.auth.user, todos: state.todo.todos})
-export default connect(mapStateToProps, {deleteTodo, setTodoStatus, editTodo})(TodoList)
+export default TodoList

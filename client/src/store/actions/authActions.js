@@ -26,7 +26,7 @@ export const loginUser = (formProps, cb) => async dispatch => {
 		setAuthToken(token)
 		const decoded = parseJwt(token)
 		dispatch(setCurrentUser(decoded))
-
+cb()
 	} catch (e) {
 		dispatch({type: 'AUTHENTICATE_ERROR', payload: 'Invalid login credentials'})
 	}

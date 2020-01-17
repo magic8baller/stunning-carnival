@@ -8,6 +8,7 @@ import QuoteContainer from './QuoteContainer'
 import SettingsContainer from './SettingsContainer'
 import TodoContainer from './TodoContainer.js'
 import WeatherContainer from './WeatherContainer.js'
+import FocusContainer from './FocusContainer.js'
 class Dashboard extends Component {
 	componentDidMount () {
 		this.props.getGeolocation()
@@ -19,6 +20,7 @@ class Dashboard extends Component {
 				<Search />
 				<WeatherContainer />
 				<Greeting />
+				<FocusContainer />
 				<SettingsContainer />
 				<TodoContainer />
 				<QuoteContainer />

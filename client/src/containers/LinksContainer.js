@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import AddLink from "../components/Links/AddLink";
 import LinkList from "../components/Links/LinkList";
-import './Links.css'
+import '../components/Links/Links.css'
 class LinksContainer extends Component {
 	constructor (props) {
 		super(props);

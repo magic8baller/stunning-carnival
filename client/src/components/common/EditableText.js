@@ -1,12 +1,9 @@
 import React from "react";
 
 class EditableText extends React.Component {
-	constructor () {
-		super();
-		this.state = {
+state = {
 			editing: false
-		};
-	}
+		}
 
 	render () {
 		const {children, onChange} = this.props;

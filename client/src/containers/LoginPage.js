@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {clearError, loadUser, loginWithToken} from '../../store/actions/authActions.js'
-import Spinner from '../common/Spinner'
-import LoginForm from './LoginForm'
+import {clearError, loadUser, loginWithToken} from '../store/actions/authActions.js'
+import Spinner from '../components/common/Spinner'
+import LoginForm from '../components/Auth/LoginForm'
 
 class LoginPage extends Component {
 

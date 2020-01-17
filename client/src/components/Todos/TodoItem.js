@@ -1,33 +1,25 @@
-import React, {Component} from 'react'
-import EditableText from '../common/EditableText.js'
+import React from 'react';
+import EditableText from '../common/EditableText.js';
 
-class TodoItem extends Component {
-  constructor(props) {
-    super(props);
-  }
+const TodoItem = ({todo, setTodoStatus, editTodo, handleDelete}) => (
+	<div style={{
+		color: '#fff'
+	}} className='inline' key={todo._id}>
 
-
-  render() {
-		const {todo} = this.props
-    return (
-		<div style={{
-      color: '#fff'
-    }} className='inline' key={this.props.todo._id}>
-
-		<input type='checkbox' name='complete' checked={this.props.todo.completed} onChange={() => this.props.setTodoStatus(this.props.todo._id)} />
+		<input type='checkbox' name='complete' checked={todo.completed} onChange={() => setTodoStatus(todo._id)} />
 		<EditableText onChange={e => {
-			e.persist()
-			todo.text = e.target.value
-			this.props.editTodo(todo._id, todo.text)
+			e.persist();
+			todo.text = e.target.value;
+			editTodo(todo._id, todo.text);
 		}}>
-
-        {this.props.todo.text}
+			{todo.text}
 		</EditableText>
 
-				<div className='right' title='Delete' type="submit" onClick={() => this.props.handleDelete(this.props.todo._id)}>&times;</div>
-<br/>			</div>);
-  }
-
-}
+		<div className='right' title='Delete' type="submit" onClick={() => handleDelete(todo._id)}>
+			&times;
+		</div>
+		<br />
+	</div>
+);
 
 export default TodoItem

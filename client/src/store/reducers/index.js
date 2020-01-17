@@ -1,13 +1,13 @@
 import {combineReducers} from 'redux'
 import {reducer as formReducer} from 'redux-form'
 import authReducer from './authReducer'
-import todoReducer from './todoReducer'
+import focusReducer from './focusReducer'
 import geolocationReducer from './geolocationReducer'
-import weatherReducer from './weatherReducer'
 import noteReducer from './noteReducer'
 import quoteReducer from './quoteReducer'
-import focusReducer from './focusReducer'
 import themeReducer from './themeReducer'
+import todoReducer from './todoReducer'
+import weatherReducer from './weatherReducer'
 
 export default combineReducers({
 	test: () => 123,
@@ -18,6 +18,6 @@ export default combineReducers({
 	focus: focusReducer,
 	form: formReducer,
 	position: geolocationReducer,
-	weather: weatherReducer
-theme: themeReducer
+	weather: weatherReducer,
+	theme: themeReducer
 })

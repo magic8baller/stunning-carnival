@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {withRouter, Link} from 'react-router-dom'
-import Spinner from '../common/Spinner'
-import RegisterForm from './RegisterForm'
+import Spinner from '../components/common/Spinner'
+import RegisterForm from '../components/Auth/RegisterForm'
 class registerPage extends Component {
 
 	render () {

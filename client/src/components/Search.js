@@ -2,12 +2,9 @@ import React, {Component} from "react";
 import {FaSearch} from "react-icons/fa";
 
 class Search extends Component {
-	constructor (props) {
-		super(props);
-		this.state = {
+state = {
 			text: ""
 		};
-	}
 
 	openSearch = () => {
 		const param = this.state.text;
