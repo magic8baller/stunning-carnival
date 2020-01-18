@@ -1,6 +1,6 @@
-
-import {parseJwt, setAuthToken} from '../../utils/tokenAuth'
 import API from '../../API'
+import history from '../../history'
+import {parseJwt, setAuthToken} from '../../utils/tokenAuth'
 
 export const registerUser = (formProps, callback) => async dispatch => {
 	try {
@@ -10,14 +10,14 @@ export const registerUser = (formProps, callback) => async dispatch => {
 		setAuthToken(token)
 		const decodedToken = parseJwt(token)
 		dispatch(setCurrentUser(decodedToken))
-
+		history.push('/')
 	} catch (e) {
 		dispatch({type: 'AUTHENTICATE_ERROR', payload: 'Email is already registered'})
 	}
 }
 
 
-export const loginUser = (formProps, cb) => async dispatch => {
+export const loginUser = (formProps, callback) => async dispatch => {
 
 	try {
 		const loginResponse = await API.post('/login', formProps)
@@ -26,7 +26,7 @@ export const loginUser = (formProps, cb) => async dispatch => {
 		setAuthToken(token)
 		const decoded = parseJwt(token)
 		dispatch(setCurrentUser(decoded))
-cb()
+history.push('/')
 	} catch (e) {
 		dispatch({type: 'AUTHENTICATE_ERROR', payload: 'Invalid login credentials'})
 	}
@@ -62,7 +62,7 @@ export const logoutUser = () => dispatch => {
 		localStorage.removeItem('token')
 		localStorage.removeItem('coords')
 		dispatch({type: 'LOGOUT_USER', payload: ''})
-
+		history.push('/login')
 	} catch (error) {
 		console.error(error.message)
 	}

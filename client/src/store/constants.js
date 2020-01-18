@@ -52,3 +52,7 @@ export const themeConstants = {
 UPDATE_THEME_COLOR: 'UPDATE_THEME_COLOR',
 UPDATE_THEME_FONT: 'UPDATE_THEME_FONT'
 }
+
+export const backgroundConstants = {
+	FETCH_BACKGROUND: 'FETCH_BACKGROUND',
+}

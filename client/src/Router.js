@@ -1,7 +1,6 @@
 import React from 'react'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import history from './history'
-
 import Login from './containers/LoginPage'
 import AddTodoForm from './components/Todos/AddTodoForm'
 import Register from './containers/RegisterPage'
@@ -16,10 +15,8 @@ const Router = () => (
 		<Main>
 			<Route path='/' history={history} exact component={Landing} />
 			<Route path='/register' component={Register} />
-
-			<Route path='/login' component={Login} />
+			<Route path='/login' history={history} component={Login} />
 			<Switch>
-
 				<PrivateRoute path='/dashboard' exact component={Dashboard} />
 				<PrivateRoute path="/addTodo" exact component={AddTodoForm} />
 			</Switch>

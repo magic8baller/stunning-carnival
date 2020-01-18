@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
 class Focus extends Component {
 
@@ -12,11 +12,8 @@ class Focus extends Component {
 	}
 	handleKeyPress = e => {
 		if (e.key === 'Enter') {
-
-
-				this.props.addFocus({text:this.state.text});
-				this.setState({text: ''});
-
+			this.props.addFocus({text:this.state.text});
+			this.setState({text: ''});
 		}
 	}
 	render() {

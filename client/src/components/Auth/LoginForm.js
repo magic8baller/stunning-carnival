@@ -9,9 +9,11 @@ import RenderTextInput from '../Layout/RenderTextInput'
 class Login extends Component {
 
 	onSubmit = formProps => {
-		this.props.loginUser(formProps)
+		this.props.loginUser(formProps, () => {
+
+			this.props.history.push('/')
+		})
 		console.log(formProps)
-	this.props.history.push('/')
 	}
 	render () {
 		const {handleSubmit, errorMessage} = this.props
