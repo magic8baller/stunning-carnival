@@ -23,25 +23,8 @@ class SettingsContainer extends Component {
 		this.setState({index: i})
 	}
 
-	showHideComponents () {
-		const visible = ['weatherVisible', 'todoVisible', 'quoteVisible', 'focusVisible', 'noteVisible'];
-		const items = ['Weather', 'Todo', 'Quote', 'Focus', 'Note'];
-		return visible.map((item, index) =>
-			<div key={index} className="container container-style cursor-pointer user-select-none"
-				onClick={() => {
-					this.setState({[visible[index]]: !this.state[visible[index]]});
-					var custom = JSON.parse(localStorage.getItem("customization"));
-					custom[item] = !this.state[visible[index]];
-					localStorage.setItem("customization", JSON.stringify(custom));
-				}}>
-				<div className="left">{items[index]}</div>
-				<input
-					type="checkbox"
-					className="right"
-					checked={this.state[visible[index]]}
-					onChange={() => {}} />
-			</div>
-		);
+	changeFont = font => {
+		document.body.style.fontFamily = font
 	}
 
 	renderSetting () {
@@ -60,27 +43,24 @@ class SettingsContainer extends Component {
 					<div>
 						<div style={{fontSize: 20, marginBottom: 4}}>General</div>
 						<div style={{fontSize: 12, color: '#999', marginBottom: 20}}>Customize your dashboard</div>
-						<div style={{fontSize: 13, marginBottom: 8}}>SHOW</div>
-						{/* {this.showHideComponents()} */}
+
 						<br />
 						<br />
 						<div style={{fontSize: 13, marginBottom: 8}}>CUSTOMIZE</div>
 						<div className="container container-style">
 							<div className="left">Theme</div>
-							<div className="right-options" onClick={() => this.changeTheme("#007777")}>Blue green</div>
-							<div className="right-options" onClick={() => this.changeTheme("#565655")}>Grey</div>
-							<div className="right-options" onClick={() => this.changeTheme("#007729")}>Green</div>
-							<div className="right-options" onClick={() => this.changeTheme("#4d0656")}>Purple</div>
-							<div className="right-options" onClick={() => this.changeTheme("#0e254c")}>Navy Blue</div>
-							<div className="right-options" onClick={() => this.changeTheme("black")}>Black</div>
+
+							<div className="right-options" onClick={() => this.changeTheme("#0e254c")}>Light</div>
+							<div className="right-options" onClick={() => this.changeTheme("black")}>Dark</div>
 						</div>
 						<div className="container container-style">
 							<div className="left">Font</div>
-							<div className="right-options" onClick={() => this.changeFont('Calibri')}>Calibri</div>
-							<div className="right-options" onClick={() => this.changeFont('Times New Roman')}>Times New Roman</div>
-							<div className="right-options" onClick={() => this.changeFont('Century Gothic')}>Century Gothic</div>
-							<div className="right-options" onClick={() => this.changeFont('Trebuchet MS')}>Trebuchet MS</div>
-							<div className="right-options" onClick={() => this.changeFont('Arial')}>Arial</div>
+							<div className="right-options" onClick={() => this.changeFont('-apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif')}>Classic</div>
+							<div className="right-options" onClick={() => this.changeFont('Avenir, "Avenir Next", "Segoe UI", "Lucida Grande", "Lucida Sans Unicode", sans-serif')}>Modern</div>
+							<div className="right-options" onClick={() => this.changeFont('NTR')}>Startup</div>
+							<div className="right-options" onClick={() => this.changeFont('Inconsolata')}>Retro</div>
+							<div className="right-options" onClick={() => this.changeFont('Poppins')}>Warehouse</div>
+							<div className="right-options" onClick={() => this.changeFont('"Work Sans"')}>Quirky</div>
 						</div>
 					</div>
 				)
@@ -96,8 +76,8 @@ class SettingsContainer extends Component {
 				{this.state.isOpen && (
 					<div id='settings-content'>
 						<div className="tab-column border-right">
-							{settingOptions.map((item, i) => <div key={i} className={this.state.index === i ? "setting-tabs active" : "setting-tabs"} onClick={this.showSetting.bind(this, i)}>{item}</div>)}
-							{this.props.user.email}
+							{settingOptions.map((item, i) => <div key={i} className={this.state.index === i ? "setting-tabs active" : "setting-tabs"} onClick={() => this.showSetting(i)}>{item}</div>)}
+
 							{<button className="logout-button" onClick={this.props.logoutUser} title={this.props.user.email}>Log Out</button>}
 						</div>
 						<div className="setting-column">

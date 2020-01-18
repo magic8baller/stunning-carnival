@@ -588,7 +588,7 @@ input{
  .setting-tabs{
    color: #CCC;
    line-height: 2;
-   font-size: 0.9em;
+   font-size: 1.3em;
    user-select: none;
    cursor: pointer;
  }
