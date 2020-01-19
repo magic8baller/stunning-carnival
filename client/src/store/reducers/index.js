@@ -8,6 +8,7 @@ import quoteReducer from './quoteReducer'
 import themeReducer from './themeReducer'
 import todoReducer from './todoReducer'
 import weatherReducer from './weatherReducer'
+import backgroundReducer from './backgroundReducer'
 
 export default combineReducers({
 	test: () => 123,
@@ -19,5 +20,6 @@ export default combineReducers({
 	form: formReducer,
 	position: geolocationReducer,
 	weather: weatherReducer,
-	theme: themeReducer
+	theme: themeReducer,
+	background: backgroundReducer,
 })

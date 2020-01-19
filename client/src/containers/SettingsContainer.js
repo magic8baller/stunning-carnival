@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {FaCog} from 'react-icons/fa'
+import BackgroundContainer from './BackgroundContainer'
 import './Setttings.css'
 import {connect} from 'react-redux'
 import {logoutUser} from '../store/actions/authActions'
@@ -34,7 +35,7 @@ class SettingsContainer extends Component {
 			case 2:
 				return 'Todo Settings'
 			case 3:
-				return 'Photo Settings'
+				return <BackgroundContainer/>
 			case 4:
 				// return <SettingsQuotes quoteUpdate={this.handleQuoteUpdate} />
 				return 'Quote Settings'
@@ -76,7 +77,7 @@ class SettingsContainer extends Component {
 				{this.state.isOpen && (
 					<div id='settings-content'>
 						<div className="tab-column border-right">
-							{settingOptions.map((item, i) => <div key={i} className={this.state.index === i ? "setting-tabs active" : "setting-tabs"} onClick={() => this.showSetting(i)}>{item}</div>)}
+							{settingOptions.map((item, i) => <div key={i} style={{fontSize: '16px'}} className={this.state.index === i ? "setting-tabs active" : "setting-tabs"} onClick={() => this.showSetting(i)}>{item}</div>)}
 
 							{<button className="logout-button" onClick={this.props.logoutUser} title={this.props.user.email}>Log Out</button>}
 						</div>

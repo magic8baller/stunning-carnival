@@ -1,0 +1,115 @@
+.wallpaper-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  /* overflow: hidden; */
+}
+.settings {
+  position: fixed;
+  bottom: 2%;
+  left: 2%;
+  width: 100%;
+  height: auto;
+  color: #e0e0e0;
+}
+
+.settingsPage {
+  height: 350px;
+  width: 90%;
+  max-width: 700px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.8);;
+  margin-bottom: 1%;
+  z-index: 10;
+}
+
+.settingsLeft {
+  float: left;
+  width: 25%;
+  height: 95.5%;
+  border-right: 1px solid #616161;
+  padding-left: 5%;
+  padding-top: 3%;
+  overflow-wrap: break-word;
+
+}
+  .settingsLeftText:hover {
+      cursor: pointer;
+
+}
+
+.settingsRight {
+  position: relative;
+  float: right;
+  width: 69%;
+  height: 99%;
+}
+
+.background{
+  color: #aaa;
+}
+  .background h2 {
+    color: #eee;
+  }
+
+  .background ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .background li {
+    display: inline-block;
+    margin-right: 5%;
+	}
+   .background li:hover{
+      color: #eee;
+      cursor: pointer;
+
+  }
+    .active {
+      border-bottom: 3px solid #eee;
+      color: #eee;
+    }
+
+  .line-separator {
+    display: absolute;
+    height:1px;
+    background:#717171;
+    border-bottom:1px solid #313030;
+    width: 98%;
+  }
+
+  .backgroundImageItem {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    border: 1px solid gray;
+    display: inline-block;
+    margin: 5px;
+
+	}
+    .backgroundImageItem:hover {
+      cursor: pointer;
+      border: 1px solid green;
+    }
+
+      .heartInBackgroundHistory {
+        position: absolute;
+        top: 0px;
+        left: 38px;
+
+			}
+        .heartInBackgroundHistory:hover {
+          cursor: pointer;
+          color: white;
+  }
+
+  .backgroundHistoryViewContainer {
+    max-height: 205px;
+    overflow: auto;
+  }
