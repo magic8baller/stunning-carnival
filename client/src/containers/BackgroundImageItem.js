@@ -13,13 +13,13 @@ const BackgroundImageItem = props => {
 		// <i onClick={handleHeartClicked} className="fa fa-heart" aria-hidden="true"></i> :
 		// <i onClick={handleHeartClicked} className="fa fa-heart-o" aria-hidden="true"></i>;
 
-	if (!props.image.url) {
+	if (!props.image.urls) {
 		return null;
 	}
 
 	return (
 		<div className="backgroundImageItem">
-			<img src={props.image.url} width="54px" height="54px" onClick={handleBackgroundClicked} />
+			<img src={props.image.urls.raw} width="54px" height="54px" onClick={()=> props.handleBackgroundChange(props.image.urls.full)} />
 			<div className="heartInBackgroundHistory">
 				{/* {favoriteHeart} */}
 			</div>

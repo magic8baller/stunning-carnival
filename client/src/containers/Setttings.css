@@ -1,3 +1,50 @@
+
+.enter {
+  animation: Enter .3s;
+}
+#settings {
+  position: fixed;
+  bottom: 2%;
+  left: 2%;
+  width: 100%;
+  height: auto;
+  color: #e0e0e0;
+}
+
+.settingsPage {
+  height: 350px;
+  width: 90%;
+  max-width: 700px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.8);;
+  margin-bottom: 1%;
+  z-index: 10;
+}
+
+.settingsLeft {
+  float: left;
+  width: 25%;
+  height: 95.5%;
+  border-right: 1px solid #616161;
+  padding-left: 5%;
+  padding-top: 3%;
+  overflow-wrap: break-word;
+
+}
+  .settingsLeftText:hover {
+      cursor: pointer;
+
+}
+
+.settingsRight {
+  position: relative;
+  float: right;
+  width: 69%;
+  height: 99%;
+}
+
+
+/*  */
 input[type='checkbox']{
   cursor: pointer;
 }
@@ -572,19 +619,97 @@ input{
    opacity: 1;
  }
 
- #settings-content{
+ #settings-modal{
    background-color: black;
    position: absolute;
    left: 1.3em;
    bottom: 3.5em;
    opacity: 0.9;
-   width: 42em;
-   height: 26em;
+   width: 650px;
+   height: 450px;
    z-index: 2;
    border-radius: 6px;
    word-break: break-all;
  }
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 5px;
+  flex-basis: 5%;
+}
 
+.close:hover, .close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.settings-panes {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.settings-side-menu {
+  flex-basis: 12%;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 40px;
+  border-right: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.settings-side-menu ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+.settings-side-menu li {
+  font-size: 16px;
+  cursor: pointer;
+  list-style-type: none;
+  margin-bottom: 20px;
+  color: lightgray;
+}
+
+.settings-side-menu #aboutPane {
+  font-size: 12px;
+  opacity: .4;
+}
+
+.settings-side-menu li:hover, .settings-side-menu .menu-active {
+  color: white;
+}
+
+.settings-main-pane {
+  padding: 10px;
+  flex-basis: 88%
+}
+
+.settings-main-pane h1 {
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 700px) {
+  #settings-modal {
+    width: 95%;
+    height: 75%;
+    margin-left: 2.5%;
+  }
+  .settings-side-menu{
+    padding: 20px 10px;
+    flex-basis: 30%;
+  }
+  .settings-main-pane {
+    flex-basis: 60%;
+  }
+  .quoteListItem-container {
+    width: 80%;
+  }
+}
  .setting-tabs{
    color: #CCC;
    line-height: 2;

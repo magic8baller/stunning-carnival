@@ -10,19 +10,16 @@ class BackgroundView extends Component {
 		console.log(clickedBg)
 	}
 
-	handleBackgroundChange = clickedBg => {
-		const img = new Image ()
-		img.src = clickedBg
-		img.onload =() => {
-this.props.setBackground({
-		backgroundImage: `url(${img.src}) no-repeat center center fixed`,
-		backgroundPosition: 'relative',
-		backgroundRepeat: 'no-repeat center center fixed',
-		backgroundSize: 'cover'
-	})
-		}
-	}
+	handleBgChange = (bg) => {
 
+		this.props.setBackground({
+			backgroundImage: `url("${bg}")`,
+			backgroundPosition: 'relative',
+			backgroundRepeat: 'no-repeat center center fixed',
+			backgroundSize: 'cover'
+		})
+
+	}
 	render () {
 const backgroundHistory = this.props.backgrounds
 let backgroundsToRender = []
@@ -42,7 +39,7 @@ backgroundsToRender.map((image, index) =>
 key={image._id}
 image={image}
 handleFavorite={this.handleFavorite}
-handleBackgroundChange={(bg) => this.handleBackgroundChange(bg)}
+handleBackgroundChange={() => this.handleBgChange(image.urls.full)}
 />)
 :
 'No Images to Show'

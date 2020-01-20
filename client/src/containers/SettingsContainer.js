@@ -35,7 +35,7 @@ class SettingsContainer extends Component {
 			case 2:
 				return 'Todo Settings'
 			case 3:
-				return <BackgroundContainer/>
+				return <BackgroundContainer handleBackgroundChange={this.props.handleBackgroundChange}/>
 			case 4:
 				// return <SettingsQuotes quoteUpdate={this.handleQuoteUpdate} />
 				return 'Quote Settings'
@@ -49,13 +49,13 @@ class SettingsContainer extends Component {
 						<br />
 						<div style={{fontSize: 13, marginBottom: 8}}>CUSTOMIZE</div>
 						<div className="container container-style">
-							<div className="left">Theme</div>
-
+							<div className="left">THEME:</div>
+<br/><br/>
 							<div className="right-options" onClick={() => this.changeTheme("#0e254c")}>Light</div>
 							<div className="right-options" onClick={() => this.changeTheme("black")}>Dark</div>
 						</div>
 						<div className="container container-style">
-							<div className="left">Font</div>
+							<div className="left">FONT:</div><br/><br/>
 							<div className="right-options" onClick={() => this.changeFont('-apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif')}>Classic</div>
 							<div className="right-options" onClick={() => this.changeFont('Avenir, "Avenir Next", "Segoe UI", "Lucida Grande", "Lucida Sans Unicode", sans-serif')}>Modern</div>
 							<div className="right-options" onClick={() => this.changeFont('NTR')}>Startup</div>
@@ -75,16 +75,19 @@ class SettingsContainer extends Component {
 					<FaCog className='settings-icon' alt='settings' />
 				</div>
 				{this.state.isOpen && (
-					<div id='settings-content'>
-						<div className="tab-column border-right">
+					<div id='settings-modal'>
+<div className="settings-panes">
+
+						<div className="settings-side-menu">
+
 							{settingOptions.map((item, i) => <div key={i} style={{fontSize: '16px'}} className={this.state.index === i ? "setting-tabs active" : "setting-tabs"} onClick={() => this.showSetting(i)}>{item}</div>)}
 
 							{<button className="logout-button" onClick={this.props.logoutUser} title={this.props.user.email}>Log Out</button>}
 						</div>
-						<div className="setting-column">
+						<div className="settings-main-pane">
 							{this.renderSetting()}
 						</div>
-
+						</div>
 					</div>
 				)}
 			</div>

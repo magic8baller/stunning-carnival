@@ -1,5 +1,6 @@
 import {backgroundConstants} from '../constants'
 const {FETCH_BACKGROUND, FETCH_ALL_BACKGROUNDS, BACKGROUND_ERROR, ADD_BACKGROUND, SET_BACKGROUND} = backgroundConstants
+
 const initialState = {
 	backgrounds: [],
 	currentBackground: null,

@@ -1,14 +1,15 @@
 import API from '../../API'
+import {unsplashImages, getRandomImage} from '../../API/backgroundData'
 import {backgroundConstants} from '../constants'
 const {FETCH_ALL_BACKGROUNDS, FETCH_BACKGROUND,
 	ADD_BACKGROUND,
 	UPDATE_BACKGROUND,
 	BACKGROUND_ERROR, SET_BACKGROUND} = backgroundConstants
 
-export const getBackgroundHistory = () => async dispatch => {
+export const getBackgroundHistory = () => dispatch => {
 	try {
-		const fetchAllBackgroundsResponse = await API.get('/api/photos')
-		dispatch({type: FETCH_ALL_BACKGROUNDS, payload: fetchAllBackgroundsResponse.data})
+
+		dispatch({type: FETCH_ALL_BACKGROUNDS, payload: unsplashImages})
 	} catch (error) {
 		setError(error)
 	}
@@ -17,10 +18,10 @@ export const getBackgroundHistory = () => async dispatch => {
 export const setBackground = (payload) => dispatch => {
 dispatch({type: SET_BACKGROUND, payload: payload})
 }
-export const getBackground = () => async dispatch => {
+export const getBackground = () => dispatch => {
 	try {
-		const fetchBackgroundResponse = await API.post('/api/photos/daily')
-		dispatch({type: FETCH_BACKGROUND, payload: fetchBackgroundResponse.data})
+		
+		dispatch({type: FETCH_BACKGROUND, payload: getRandomImage()})
 	} catch (error) {
 		setError(error)
 	}

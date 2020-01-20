@@ -658,7 +658,7 @@ h4 .badge {
 
 .background,
 .background-item {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     right: 0;

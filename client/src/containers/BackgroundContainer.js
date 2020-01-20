@@ -28,8 +28,8 @@ handleClick = item => {
 				</ul>
 				<div className="line-separator"></div>
 				{this.state.active === 'Favorites' ?
-					<BackgroundView active="Favorites" /> :
-					<BackgroundView active="History" />
+					<BackgroundView handleBackgroundChange={this.props.handleBackgroundChange} active="Favorites" /> :
+					<BackgroundView handleBackgroundChange={this.props.handleBackgroundChange} active="History" />
 				}
 			</div>
 		)
