@@ -15,12 +15,10 @@ class Dashboard extends Component {
 
 	componentDidMount () {
 		this.props.getGeolocation()
-		// this.props.getBackground()
 		this.props.getBackgroundHistory()
-		// this.props.getBackgroundHistory()
-		// this.props.getBackground()
 
-// this.handleBackgroundChange()
+			this.props.getBackground()
+	
 	}
 	componentDidUpdate (prevProps, prevState) {
 		if (this.props.background.currentBackground!== prevProps.background.currentBackground) {
@@ -30,14 +28,13 @@ class Dashboard extends Component {
 	}
 
 	handleBackgroundChange = () => {
-
 			this.props.setBackground({
-				backgroundImage: `url("${this.props.background.currentBackground.urls.full}")`,
+				background: `url("${this.props.background.currentBackground.urls.full}"),
+				url('../img/overlay-vignette.png')`,
 				backgroundPosition: 'relative',
 				backgroundRepeat: 'no-repeat center center fixed',
 				backgroundSize: 'cover'
 			})
-
 	}
 	render () {
 
@@ -50,7 +47,7 @@ class Dashboard extends Component {
 				<WeatherContainer />
 				<Greeting />
 				<FocusContainer />
-				<SettingsContainer handleBackgroundChange={this.handleBackgroundChange} />
+				<SettingsContainer />
 				<TodoContainer />
 				<QuoteContainer />
 			</div>

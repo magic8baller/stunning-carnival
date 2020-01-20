@@ -1,5 +1,5 @@
 import API from '../../API'
-import {unsplashImages, getRandomImage} from '../../API/backgroundData'
+import {unsplashImages} from '../../API/backgroundData'
 import {backgroundConstants} from '../constants'
 const {FETCH_ALL_BACKGROUNDS, FETCH_BACKGROUND,
 	ADD_BACKGROUND,
@@ -9,7 +9,7 @@ const {FETCH_ALL_BACKGROUNDS, FETCH_BACKGROUND,
 export const getBackgroundHistory = () => dispatch => {
 	try {
 
-		dispatch({type: FETCH_ALL_BACKGROUNDS, payload: unsplashImages})
+		dispatch({type: FETCH_ALL_BACKGROUNDS, payload: {images: unsplashImages, random: unsplashImages[Math.floor(Math.random() * unsplashImages.length)]}})
 	} catch (error) {
 		setError(error)
 	}
@@ -18,10 +18,10 @@ export const getBackgroundHistory = () => dispatch => {
 export const setBackground = (payload) => dispatch => {
 dispatch({type: SET_BACKGROUND, payload: payload})
 }
-export const getBackground = () => dispatch => {
+export const getBackground = (payload) => (dispatch, getState) => {
 	try {
-		
-		dispatch({type: FETCH_BACKGROUND, payload: getRandomImage()})
+
+		dispatch({type: FETCH_BACKGROUND, payload})
 	} catch (error) {
 		setError(error)
 	}

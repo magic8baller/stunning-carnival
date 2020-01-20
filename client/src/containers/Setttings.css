@@ -547,62 +547,6 @@ input{
   to{ bottom:2em; opacity:1 }
  }
 
-.quote{
-  position: absolute;
-  text-align: center;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -1em;
-  color: white;
-  text-align: center;
-  line-height: 1.5;
-  width: 75%;
-  word-wrap: break-word;
-  -webkit-animation-name: animateback_quote;
-  -webkit-animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-  animation-name: animateback_quote;
-  animation-duration: 0.5s
-}
-
-.quote:hover{
-  -webkit-animation-name: animatetop_quote;
-  -webkit-animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-  animation-name: animatetop_quote;
-  animation-duration: 0.5s
-}
-
-@keyframes animatetop_quote{
-  from{ bottom:-1em; }
-  to{ bottom:0.8em; }
- }
-
- @keyframes animateback_quote{
-  from{ bottom:0.8em; }
-  to{ bottom:-1em; }
- }
-
-.author{
-  visibility: hidden;
-}
-
-.quote:hover .author{
-  visibility: visible;
-  position: relative;
-  animation-name: animatebottom_quote;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-  animation-duration: 0.5s
-}
-
-@keyframes animatebottom_quote{
-  from{ bottom: 40px; opacity:0 }
-  to{ bottom: 0px; opacity:1 }
-}
-
 .settings{
   position: absolute;
   left: 1em;

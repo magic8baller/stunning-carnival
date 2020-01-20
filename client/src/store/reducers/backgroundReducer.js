@@ -12,7 +12,7 @@ export default function (state = initialState, action) {
 		case SET_BACKGROUND:
 		return {...state, bgStyle: action.payload}
 		case FETCH_ALL_BACKGROUNDS:
-			return {...state, currentBackground: action.payload.reverse()[0],backgrounds: action.payload}
+			return {...state, backgrounds: action.payload.images, currentBackground: action.payload.random}
 		case FETCH_BACKGROUND:
 			return {...state, currentBackground: action.payload,backgrounds: [...state.backgrounds, ...action.payload]}
 		case ADD_BACKGROUND:

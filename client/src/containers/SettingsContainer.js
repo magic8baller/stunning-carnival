@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {FaCog} from 'react-icons/fa'
-import BackgroundContainer from './BackgroundContainer'
+import BackgroundContainer from './BackgroundSettingsContainer'
+import GeneralSettings from '../components/Settings/GeneralSettings'
 import './Setttings.css'
 import {connect} from 'react-redux'
 import {logoutUser} from '../store/actions/authActions'
@@ -35,36 +36,13 @@ class SettingsContainer extends Component {
 			case 2:
 				return 'Todo Settings'
 			case 3:
-				return <BackgroundContainer handleBackgroundChange={this.props.handleBackgroundChange}/>
+				return <BackgroundContainer/>
 			case 4:
 				// return <SettingsQuotes quoteUpdate={this.handleQuoteUpdate} />
 				return 'Quote Settings'
 			default:
-				return (
-					<div>
-						<div style={{fontSize: 20, marginBottom: 4}}>General</div>
-						<div style={{fontSize: 12, color: '#999', marginBottom: 20}}>Customize your dashboard</div>
+				return <GeneralSettings changeFont={this.changeFont} changeTheme={this.changeTheme}/>
 
-						<br />
-						<br />
-						<div style={{fontSize: 13, marginBottom: 8}}>CUSTOMIZE</div>
-						<div className="container container-style">
-							<div className="left">THEME:</div>
-<br/><br/>
-							<div className="right-options" onClick={() => this.changeTheme("#0e254c")}>Light</div>
-							<div className="right-options" onClick={() => this.changeTheme("black")}>Dark</div>
-						</div>
-						<div className="container container-style">
-							<div className="left">FONT:</div><br/><br/>
-							<div className="right-options" onClick={() => this.changeFont('-apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif')}>Classic</div>
-							<div className="right-options" onClick={() => this.changeFont('Avenir, "Avenir Next", "Segoe UI", "Lucida Grande", "Lucida Sans Unicode", sans-serif')}>Modern</div>
-							<div className="right-options" onClick={() => this.changeFont('NTR')}>Startup</div>
-							<div className="right-options" onClick={() => this.changeFont('Inconsolata')}>Retro</div>
-							<div className="right-options" onClick={() => this.changeFont('Poppins')}>Warehouse</div>
-							<div className="right-options" onClick={() => this.changeFont('"Work Sans"')}>Quirky</div>
-						</div>
-					</div>
-				)
 		}
 	}
 	render () {
@@ -73,6 +51,12 @@ class SettingsContainer extends Component {
 			<div className='settings-container'>
 				<div onClick={this.onClickSettings}>
 					<FaCog className='settings-icon' alt='settings' />
+					{this.props.bg &&(
+					<div className="location-container">
+						<p className="location-title">{this.props.bg.user.location}</p>
+						<p className="location-photographer">Photo by {this.props.bg.user.name}</p>
+					</div>
+					)}
 				</div>
 				{this.state.isOpen && (
 					<div id='settings-modal'>
@@ -95,5 +79,5 @@ class SettingsContainer extends Component {
 	}
 }
 
-const mapStateToProps = state => ({user: state.auth.user})
+const mapStateToProps = state => ({user: state.auth.user, bg: state.background.currentBackground})
 export default connect(mapStateToProps, {logoutUser})(SettingsContainer)
