@@ -37,7 +37,6 @@ class LoginPage extends Component {
 }
 
 const mapStateToProps = state => ({
-
 	isAuthenticated: state.auth.isAuthenticated,
 	loginError: state.auth.errorMesage,
 	isLoading: state.auth.isLoading

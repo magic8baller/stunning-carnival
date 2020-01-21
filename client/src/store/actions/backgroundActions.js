@@ -1,5 +1,5 @@
-import API from '../../API'
-import {unsplashImages} from '../../API/backgroundData'
+import API from '../../services/API'
+import {unsplashImages} from '../../services/API/backgroundData'
 import {backgroundConstants} from '../constants'
 const {FETCH_ALL_BACKGROUNDS, FETCH_BACKGROUND,
 	ADD_BACKGROUND,

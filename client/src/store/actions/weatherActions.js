@@ -1,4 +1,4 @@
-import {weatherAPI} from '../../API'
+import {weatherAPI} from '../../services/API'
 import {weatherConstants} from '../constants'
 const {GEOLOCATION_DENIED, GET_CURRENT_WEATHER, GET_WEATHER_FORECAST, GET_GEOLOCATION, SET_COORDS,WEATHER_ERROR} = weatherConstants
 const REACT_APP_OPEN_WEATHER_KEY = '2d61e029b2ceb5e6ee95965c1c1d3bd2'

@@ -1,4 +1,4 @@
-import API from '../../API'
+import API from '../../services/API'
 import {todoConstants} from '../constants'
 const {FETCH_TODOS, TODOS_LOADING, ADD_TODO, DELETE_TODO, EDIT_TODO,
 	SET_TODO_STATUS, SET_CURRENT_TODO, CLEAR_CURRENT_TODO, TODO_ERROR} = todoConstants

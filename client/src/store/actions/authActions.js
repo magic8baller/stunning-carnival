@@ -1,4 +1,4 @@
-import API from '../../API'
+import API from '../../services/API'
 import history from '../../history'
 import {parseJwt, setAuthToken} from '../../utils/tokenAuth'
 

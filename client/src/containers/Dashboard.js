@@ -5,6 +5,7 @@ import Links from './LinksContainer'
 import Search from '../components/Search'
 import {getGeolocation} from '../store/actions/weatherActions'
 import {getBackground,setBackground, getBackgroundHistory} from '../store/actions/backgroundActions'
+
 import QuoteContainer from './QuoteContainer'
 import SettingsContainer from './SettingsContainer'
 import TodoContainer from './TodoContainer.js'
@@ -18,7 +19,7 @@ class Dashboard extends Component {
 		this.props.getBackgroundHistory()
 
 			this.props.getBackground()
-	
+
 	}
 	componentDidUpdate (prevProps, prevState) {
 		if (this.props.background.currentBackground!== prevProps.background.currentBackground) {
@@ -30,7 +31,7 @@ class Dashboard extends Component {
 	handleBackgroundChange = () => {
 			this.props.setBackground({
 				background: `url("${this.props.background.currentBackground.urls.full}"),
-				url('../img/overlay-vignette.png')`,
+				url('../assets/img/overlay-vignette.png')`,
 				backgroundPosition: 'relative',
 				backgroundRepeat: 'no-repeat center center fixed',
 				backgroundSize: 'cover'

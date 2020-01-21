@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
 import {FaCog} from 'react-icons/fa'
 import BackgroundContainer from './BackgroundSettingsContainer'
+import QuoteSettingsContainer from './QuoteSettingsContainer'
 import GeneralSettings from '../components/Settings/GeneralSettings'
 import './Setttings.css'
 import {connect} from 'react-redux'
 import {logoutUser} from '../store/actions/authActions'
+
+
 class SettingsContainer extends Component {
 
 	state = {
@@ -16,6 +19,7 @@ class SettingsContainer extends Component {
 		focusVisible: true,
 		noteVisible: true
 	}
+
 
 	onClickSettings = () => {
 		this.setState({isOpen: !this.state.isOpen})
@@ -39,7 +43,7 @@ class SettingsContainer extends Component {
 				return <BackgroundContainer/>
 			case 4:
 				// return <SettingsQuotes quoteUpdate={this.handleQuoteUpdate} />
-				return 'Quote Settings'
+				return <QuoteSettingsContainer/>
 			default:
 				return <GeneralSettings changeFont={this.changeFont} changeTheme={this.changeTheme}/>
 
@@ -52,7 +56,7 @@ class SettingsContainer extends Component {
 				<div onClick={this.onClickSettings}>
 					<FaCog className='settings-icon' alt='settings' />
 					{this.props.bg &&(
-					<div className="location-container">
+					<div className="location-container" style={{float: 'right'}}>
 						<p className="location-title">{this.props.bg.user.location}</p>
 						<p className="location-photographer">Photo by {this.props.bg.user.name}</p>
 					</div>

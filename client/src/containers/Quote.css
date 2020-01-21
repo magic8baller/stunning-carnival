@@ -1,0 +1,10 @@
+.add-button {
+	  width: 135px;
+    margin-top: 0;
+    padding: 8px 8px 9px;
+		box-sizing: border-box;
+		border-radius: 18px;
+		text-align: center;
+		background: rgba(226, 11, 11, 0.4);
+    color: #fff;
+}

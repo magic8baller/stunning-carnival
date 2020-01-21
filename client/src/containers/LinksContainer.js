@@ -11,7 +11,8 @@ class LinksContainer extends Component {
 				name: "",
 				url: ""
 			},
-			active: false
+			active: 'Links',
+			open: false
 		};
 	}
 
@@ -52,7 +53,9 @@ class LinksContainer extends Component {
 			fields: {
 				name: "",
 				url: ""
-			}
+			},
+
+			active: 'Links'
 		}));
 		e.preventDefault();
 	};
@@ -64,20 +67,31 @@ class LinksContainer extends Component {
 		}));
 	};
 
-	activeHandler = () => {
-			this.setState({active: !this.state.active});
+	activeHandler = (item) => {
+		this.setState({active: item})
 	};
+
+	handleOpen = () => {
+		this.setState({open: !this.state.open})
+	}
 
 	render () {
 
 		return (
 			<div className="links-container">
 				<div className="links-click-label">
-					<span onClick={this.activeHandler}>Links</span>
+					<span onClick={() => this.handleOpen()}>Links</span>
 				</div>
-			{	this.state.active &&(
+			{	this.state.open && this.state.active === 'Links' &&(
 				<div className='list-container'>
 				<LinkList links={this.state.links} deleteItem={this.deleteItem} />
+				<div onClick={() => this.activeHandler('New Link')}>
+				New Link +
+				</div>
+				</div>)}
+			{	this.state.open && this.state.active === 'New Link' &&(
+				<div className='list-container'>
+
 					<AddLink
 						name={this.state.fields.name}
 						url={this.state.fields.url}

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import './BgSettings.css'
 import {setBackground} from '../store/actions/backgroundActions'
-import BackgroundButton from '../components/Settings/BackgroundButton'
+import BackgroundButton from '../components/common/TabButton'
 import BackgroundView from './BackgroundPhotoList'
 class BackgroundContainer extends Component {
 

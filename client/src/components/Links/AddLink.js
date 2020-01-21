@@ -2,32 +2,16 @@ import classNames from "classnames";
 import React, {Component} from "react";
 
 class AddLink extends Component {
-	constructor (props) {
-		super(props);
-		this.state = {
-			addLink: false
-		};
-	}
 
-	addLinkToggle = () => {
-		this.setState({addLink: !this.state.addLink});
-	};
 
 	render () {
-		let linkFormToggle = classNames({
-			"add-link-form": true,
-			hidden: !this.state.addLink
-		});
-		let linkLabelToggle = classNames({
-			"add-link-click-label": true,
-			hidden: this.state.addLink
-		});
+
 		return (
 			<div className="add-link-container">
-				<div className={linkLabelToggle} onClick={this.addLinkToggle}>
+				<div>
 					<span>New Link</span>
 				</div>
-				<div className={linkFormToggle}>
+				<div>
 					<form onSubmit={this.props.handleSubmit}>
 						<input
 							className="add-link-input"

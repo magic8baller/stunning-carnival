@@ -1,5 +1,5 @@
 import {focusConstants} from '../constants'
-import API from '../../API'
+import API from '../../services/API'
 const {FETCH_FOCUS, ADD_FOCUS, REMOVE_FOCUS, UPDATE_FOCUS, FOCUS_ERROR} = focusConstants
 
 export const fetchFocus = () => async dispatch => {

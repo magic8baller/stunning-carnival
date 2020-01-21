@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BackgroundButton = props => {
+const TabButton = props => {
 	const handleClick = name => {
 		props.handleClick(name)
 	}
@@ -12,4 +12,4 @@ const BackgroundButton = props => {
 
 
 
-export default BackgroundButton;
+export default TabButton;

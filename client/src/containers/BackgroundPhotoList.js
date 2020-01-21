@@ -9,7 +9,7 @@ class BackgroundView extends Component {
 	handleBgChange = (bg) => {
 		this.props.setBackground({
 			backgroundImage: `url("${bg}"),
-			url('../img/overlay-vignette.png')`,
+			url('../assets/img/overlay-vignette.png')`,
 			backgroundPosition: 'relative',
 			backgroundRepeat: 'no-repeat center center fixed',
 			backgroundSize: 'cover'

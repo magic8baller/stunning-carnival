@@ -1,22 +1,17 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchSingleQuote} from '../store/actions/quoteActions'
 import Quote from '../components/Quote'
+import {fetchSingleQuote} from '../store/actions/quoteActions'
 class QuoteContainer extends Component {
 
-// componentDidMount() {
-// 		this.props.fetchSingleQuote()
-// console.log(this.props.quote)
-// 	}
+	fetchQuote = () => {
+		this.props.fetchSingleQuote()
+	}
 
-fetchQuote = () => {
-	this.props.fetchSingleQuote()
-}
-
-	render() {
+	render () {
 		return (
 			<div className='quotes-container'>
-<Quote currentQuote={this.props.quote} fetchQuote={this.fetchQuote}/>
+				<Quote currentQuote={this.props.quote} fetchQuote={this.fetchQuote} />
 			</div>
 		)
 	}
