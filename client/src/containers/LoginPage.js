@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import {clearError, loadUser, loginWithToken} from '../store/actions/authActions.js'
 import Spinner from '../components/common/Spinner'
 import LoginForm from '../components/Auth/LoginForm'
@@ -45,4 +45,4 @@ const mapStateToProps = state => ({
 export default connect(
 	mapStateToProps,
 	{loadUser, clearError, loginWithToken}
-)(LoginPage)
+)(withRouter(LoginPage))

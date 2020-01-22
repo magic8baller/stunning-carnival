@@ -19,7 +19,7 @@ class registerPage extends Component {
 					<h1 class="banner__title">
 						Sign Up!
 				</h1>
-					<RegisterForm />
+					<RegisterForm history={this.props.history}/>
 				</div>
 				<div className="field is-pulled-right">
 					<div className="control">
