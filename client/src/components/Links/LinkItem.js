@@ -11,14 +11,14 @@ const LinkItem = ({deleteItem, link}) => {
 
 
 	return (
-		<li className="links-list-item" key={link.id}>
+		<li className="links-list-item" key={link._id}>
 			<a href={httpsCheck(link.url)} target="_blank">
 				<span>{link.name}</span>
 			</a>
 			<button
 				className="list-item-delete-button"
 				type="submit"
-				onClick={() => deleteItem(link.id)}
+				onClick={() => deleteItem(link._id)}
 			>
 				x
       </button>

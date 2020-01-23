@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {withRouter, Link} from 'react-router-dom'
 import Spinner from '../components/common/Spinner'
 import RegisterForm from '../components/Auth/RegisterForm'
-class registerPage extends Component {
+class RegisterPage extends Component {
 
 	render () {
 
@@ -34,5 +34,4 @@ class registerPage extends Component {
 }
 
 
-const Register = withRouter(registerPage)
-export default Register
+export default withRouter(RegisterPage)

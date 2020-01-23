@@ -1,12 +1,14 @@
 import React, {Component} from "react";
 import AddLink from "../components/Links/AddLink";
+import {connect} from "react-redux"
+import {fetchLinks, addLink, deleteLink, editLink} from '../store/actions/linkActions.js'
 import LinkList from "../components/Links/LinkList";
 import '../components/Links/Links.css'
 class LinksContainer extends Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			links: [],
+			localLinks: [],
 			fields: {
 				name: "",
 				url: ""
@@ -17,13 +19,7 @@ class LinksContainer extends Component {
 	}
 
 	componentDidMount () {
-		const localKeys = Object.keys(localStorage).filter(key =>
-			key.includes("links-item")
-		);
-		const restoredLocal = localKeys.map(item => {
-			return JSON.parse(localStorage.getItem(item));
-		});
-		this.setState({links: restoredLocal});
+		this.props.fetchLinks()
 	}
 
 	handleChange = e => {
@@ -33,38 +29,25 @@ class LinksContainer extends Component {
 	};
 
 	handleSubmit = e => {
+		e.preventDefault();
 		let newLink = {
 			name: this.state.fields.name,
-			url: this.state.fields.url,
-			id: Date.now()
+			url: this.state.fields.url
 		};
-		const stringifyNewLink = JSON.stringify(newLink);
-		localStorage.setItem(`links-item-${newLink.id}`, stringifyNewLink);
+		this.props.addLink(newLink)
 
-		const localKeys = Object.keys(localStorage).filter(key =>
-			key.includes("links-item")
-		);
-		const restoredLocal = localKeys.map(item => {
-			return JSON.parse(localStorage.getItem(item));
-		});
 
-		this.setState((prevState, {links}) => ({
-			links: restoredLocal,
+		this.setState({
 			fields: {
 				name: "",
 				url: ""
 			},
-
 			active: 'Links'
-		}));
-		e.preventDefault();
+		});
 	};
 
 	deleteItem = id => {
-		localStorage.removeItem(`links-item-${id}`);
-		this.setState((prevState, {links}) => ({
-			links: prevState.links.filter(item => item.id !== id)
-		}));
+		this.props.deleteLink(id);
 	};
 
 	activeHandler = (item) => {
@@ -84,15 +67,15 @@ class LinksContainer extends Component {
 				</div>
 			{	this.state.open && this.state.active === 'Links' &&(
 				<div className='list-container'>
-				<LinkList links={this.state.links} deleteItem={this.deleteItem} />
+				<LinkList links={this.props.links} deleteItem={this.deleteItem} />
 				<div onClick={() => this.activeHandler('New Link')}>
 				New Link +
 				</div>
 				</div>)}
 			{	this.state.open && this.state.active === 'New Link' &&(
 				<div className='list-container'>
-
 					<AddLink
+					editLink={this.props.editLink}
 						name={this.state.fields.name}
 						url={this.state.fields.url}
 						handleChange={this.handleChange}
@@ -104,4 +87,7 @@ class LinksContainer extends Component {
 	}
 }
 
-export default LinksContainer;
+
+const mapStateToProps = state => ({links: state.link.links})
+
+export default connect(mapStateToProps, {fetchLinks, addLink, deleteLink, editLink})(LinksContainer)

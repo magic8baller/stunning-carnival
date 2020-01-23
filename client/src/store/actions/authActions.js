@@ -57,8 +57,6 @@ export const loadUser = () => async dispatch => {
 }
 export const logoutUser = () => dispatch => {
 	try {
-		setAuthToken(localStorage.token)
-		API.post('/me/logoutall')
 		localStorage.removeItem('token')
 		localStorage.removeItem('coords')
 		dispatch({type: 'LOGOUT_USER', payload: ''})
